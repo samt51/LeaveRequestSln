@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Dto\UserDtos\" />
+    <Folder Include="Features\CumulativeLeaveRequest\Commands\" />
+    <Folder Include="Features\CumulativeLeaveRequest\Queries\" />
+    <Folder Include="Features\LeaveRequest\Queries\" />
+    <Folder Include="Features\Notifications\Commands\" />
+    <Folder Include="Features\User\Commands\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Ardalis.Specification" Version="8.0.0" />
+    <PackageReference Include="MediatR" Version="12.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LeaveRequestApp.Domain\LeaveRequestApp.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
