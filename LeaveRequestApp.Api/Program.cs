@@ -25,6 +25,7 @@ builder.Configuration
 
 builder.Services.AddPersistence(builder.Configuration);
 builder.Services.AddApplication();
+ 
 
 builder.Services.AddSwaggerGen(c =>
 {

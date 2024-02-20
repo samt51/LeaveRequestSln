@@ -1,7 +1,9 @@
 ﻿namespace LeaveRequestApp.Domain.Events
 {
-    public interface IEventListener<TEvent> where TEvent : IDomainEvent
+    public interface IEventListener
     {
-        bool Handle(TEvent domainEvent);
+        bool CanHandle(IDomainEvent domainEvent);
+        bool Handle(IDomainEvent domainEvent);
     }
+
 }

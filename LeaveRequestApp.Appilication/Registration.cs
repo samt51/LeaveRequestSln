@@ -1,4 +1,6 @@
 ﻿using LeaveRequestApp.Appilication.EventHandler.CumulativeLeaveRequestEventListener;
+using LeaveRequestApp.Appilication.Interfaces.AutoMapper;
+using LeaveRequestApp.Appilication.Interfaces.Repositories;
 using LeaveRequestApp.Domain.Events;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
@@ -14,6 +16,11 @@ namespace LeaveRequestApp.Appilication
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(assembly));
             services.AddSingleton<EventDispatcher>();
             services.AddScoped<CumulativeLeaveRequestCreatedEventListener>();
+
+          
+
+      
+
 
         }
     }

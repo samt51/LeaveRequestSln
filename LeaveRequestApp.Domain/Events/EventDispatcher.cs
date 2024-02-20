@@ -1,36 +1,44 @@
-﻿namespace LeaveRequestApp.Domain.Events
+﻿using System.Diagnostics.Tracing;
+
+namespace LeaveRequestApp.Domain.Events
 {
     public class EventDispatcher
     {
-        private static readonly EventDispatcher _instance = new EventDispatcher();
-        private readonly List<object> _listeners;
+        private readonly List<IEventListener> _listeners;
 
-        private EventDispatcher()
+        public EventDispatcher()
         {
-            _listeners = new List<object>();
+            _listeners = new List<IEventListener>();
         }
 
-        public static EventDispatcher Instance => _instance;
-
-        public void AddListener<T>(IEventListener<T> listener) where T : IDomainEvent
+        public void AddListener(IEventListener listener)
         {
             _listeners.Add(listener);
         }
 
-        public bool Dispatch<T>(T domainEvent) where T : IDomainEvent
+        public void RemoveListener(IEventListener listener)
+        {
+            _listeners.Remove(listener);
+        }
+
+        public bool Dispatch(IDomainEvent domainEvent)
         {
             foreach (var listener in _listeners)
             {
-                if (listener is IEventListener<T> eventListener)
+                if (listener.CanHandle(domainEvent))
                 {
-                    eventListener.Handle(domainEvent);
-                    
+                    listener.Handle(domainEvent);
                     return true;
+                }
+                else
+                {
+                    return false;   
                 }
             }
             return false;
         }
     }
+
 
 
 }

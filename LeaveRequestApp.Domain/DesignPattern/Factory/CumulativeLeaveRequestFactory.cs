@@ -5,7 +5,7 @@ namespace LeaveRequestApp.Domain.DesignPattern.Factory
 {
     public class CumulativeLeaveRequestFactory
     {
-        public static CumulativeLeaveRequest CreateCumulativeLeaveRequest(LeaveTypeEnum leaveType, Guid? userId, decimal totalHours, int year)
+        public static CumulativeLeaveRequest CreateCumulativeLeaveRequest(LeaveTypeEnum leaveType, Guid? userId, int totalHours, int year)
         {
             if (userId == null)
             {

@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "YoutubeApi.Development": {
+    "LeaveRequestApp.Development": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
@@ -19,7 +19,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "YoutubeApi.Production": {
+    "LeaveRequestApp.Production": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

@@ -12,7 +12,7 @@ namespace LeaveRequestApp.Domain.Entites
         public WorkflowEnum WorkflowStatus { get; set; }
         public Guid? AssignedUserId { get; set; }
         public Users Users { get; set; }
-        public Guid CreatedById { get; set; }
+        public Guid CreatedByUserId { get; set; }
         public Users CreatedByUser { get; set; }
         public DateTime LastModifiedDate { get; set; } =DateTime.Now;
         public Guid LastModifiedById { get; set; }

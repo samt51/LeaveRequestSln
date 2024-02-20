@@ -68,13 +68,13 @@ namespace LeaveRequestApp.Appilication.Features.LeaveRequest.Commands.LeaveReque
 
 
                     var notification = LeaveRequestValidator.ValidateLeaveRequest(cumulativeLeaveRequest.LeaveType, cumulativeLeaveRequest.TotalHours);
-                    var requestt = new Notifications
+                    var requestt = new LeaveRequestApp.Domain.Entites.Notifications
                     {
                         CumulativeLeaveRequestId = cumulativeLeaveRequest.Id,
                         Message = notification,
                         UserId = map.Id,
                     };
-                    await _unitOfWork.GetWriteRepository<Notifications>().AddAsync(requestt);
+                    await _unitOfWork.GetWriteRepository<LeaveRequestApp.Domain.Entites.Notifications>().AddAsync(requestt);
                     if (await _unitOfWork.SaveAsync() > 0)
                     {
                         await _unitOfWork.SaveAsync();

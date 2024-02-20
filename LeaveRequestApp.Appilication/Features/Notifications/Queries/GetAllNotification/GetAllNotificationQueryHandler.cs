@@ -1,6 +1,7 @@
 ﻿using LeaveRequestApp.Appilication.Features.User.Queries.GetAllUsers;
 using LeaveRequestApp.Appilication.Interfaces.AutoMapper;
 using LeaveRequestApp.Appilication.Interfaces.UnitOfWorks;
+using LeaveRequestApp.Domain.Entites;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,8 +18,9 @@ namespace LeaveRequestApp.Appilication.Features.Notifications.Queries.GetAllNoti
         }
         public async Task<IList<GetAllNotificationQueryResponse>> Handle(GetAllNotificationQueryRequest request, CancellationToken cancellationToken)
         {
-            var list = await _unitOfWork.GetReadRepository<LeaveRequestApp.Domain.Entites.Notifications>().GetAllByPagingAsync(x => x.IsDeleted == false, x => x.Include(x => x.Users).ThenInclude(y => y.Notifications));
+            var list = await _unitOfWork.GetReadRepository<LeaveRequestApp.Domain.Entites.Notifications>().GetAllByPagingAsync(x => x.IsDeleted == false, x => x.Include(x => x.Users));
 
+            _mapper.Map<GetAllUsersQueryResponse, Users>(list.Select(x => x.Users).FirstOrDefault());
             var mapList = _mapper.Map<GetAllNotificationQueryResponse, LeaveRequestApp.Domain.Entites.Notifications>(list);
 
             return mapList.ToList();

@@ -15,7 +15,7 @@ namespace LeaveRequestApp.Persistence.Configurations
                 FirstName = "Münir",
                 LastName = "Özkul",
                 Email = "munir.ozkul@negzel.net",
-                UserType = 30,
+                UserType = Domain.Enums.UserTypeEnum.Manager,
                 ManagerId = Guid.Empty,
             };
 
@@ -25,7 +25,7 @@ namespace LeaveRequestApp.Persistence.Configurations
                 FirstName = "Şener",
                 LastName = "Şen",
                 Email = "sener.sen@negzel.net ",
-                UserType = 10,
+                UserType = Domain.Enums.UserTypeEnum.WhiteCollarEmployee,
                 ManagerId = Guid.Parse("e21cd525-031c-4364-b173-4150a4e18c37")
             };
 
@@ -36,7 +36,7 @@ namespace LeaveRequestApp.Persistence.Configurations
                 FirstName = "Kemal",
                 LastName = "Sunal",
                 Email = "kemal.sunal@negzel.net",
-                UserType = 20,
+                UserType = Domain.Enums.UserTypeEnum.BlueCollarEmployee,
                 ManagerId = Guid.Parse("59fb152a-2d59-435d-8fc1-cbc35c0f1d82")
             };
 

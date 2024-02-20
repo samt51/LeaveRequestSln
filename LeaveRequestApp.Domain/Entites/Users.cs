@@ -15,5 +15,6 @@ namespace LeaveRequestApp.Domain.Entites
         public IList<LeaveRequest> CreatedByIds { get; set; }
         public IList<LeaveRequest> LastModifiedByIds { get; set; }
         public IList<Permissions> Permissions { get; set; }
+        public ICollection<CumulativeLeaveRequest> CumulativeLeaveRequests { get; set; }
     }
 }

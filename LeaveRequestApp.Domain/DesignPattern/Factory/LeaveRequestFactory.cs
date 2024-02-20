@@ -14,7 +14,7 @@ namespace LeaveRequestApp.Domain.DesignPattern.Factory
                 StartDate = startDate,
                 WorkflowStatus = workFlowStatus,
                 AssignedUserId = assignedUserId,
-                CreatedById = CreateUserId,
+                CreatedByUserId = CreateUserId,
                 EndDate = endDate,
                 LastModifiedById = lastModifiedUserId,
                 Reason = reason,
